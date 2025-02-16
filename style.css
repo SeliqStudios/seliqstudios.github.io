@@ -19,11 +19,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
+  flex-wrap: wrap; 
 }
 
 .site-title {
   display: flex;
   align-items: center;
+  margin-bottom: 10px; 
 }
 
 .site-logo {
@@ -35,6 +37,7 @@ body {
 .site-title h1 {
   color: #333;
   margin: 0;
+  font-size: 1.5rem; 
 }
 
 .container {
@@ -55,6 +58,7 @@ body {
   padding: 10px;
   border: 1px solid #ddd;
   font-size: 16px;
+  box-sizing: border-box; 
 }
 
 #projectsGrid {
@@ -78,10 +82,12 @@ body {
 .project-card h2 {
   margin-top: 0;
   color: #2c3e50;
+  font-size: 1.2rem; 
 }
 
 .project-card p {
   color: #7f8c8d;
+  font-size: 0.9rem; 
 }
 
 .project-card a {
@@ -107,6 +113,7 @@ body {
   justify-content: center;
   gap: 10px;
   margin-top: 15px;
+  flex-wrap: wrap; 
 }
 
 .project-card a.project-button {
@@ -118,7 +125,8 @@ body {
   font-weight: bold;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem; 
+  margin: 5px; 
 }
 
 .project-card a.project-button:hover {
@@ -129,31 +137,46 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap; 
+  justify-content: center; 
 }
 
-.github-button {
+.github-button, .discord-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 10px 15px;
-  background-color: #24292E;  
-  color: white;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem; 
+  margin: 5px! 
+}
+
+.github-button {
+  background-color: #24292E;  
+  color: white;
 }
 
 .github-button .github-logo {
   width: 20px;
   height: 20px;
-  filter: invert(1); /* Make the logo white */
+  filter: invert(1); 
 }
 
 .github-button:hover {
   background-color: #1C2026;  
+}
+
+.discord-button {
+  background-color: #5865F2;  
+  color: white;
+}
+
+.discord-button:hover {
+  background-color: #4752C4;  
 }
 
 .main-footer {
@@ -161,8 +184,7 @@ body {
   color: white;
   text-align: center;
   padding: 15px 0;
-  position: absolute;
-  bottom: 0;
+  position: relative; 
   width: 100%;
 }
 
@@ -176,18 +198,34 @@ body {
   font-size: 0.9rem;
 }
 
-.discord-button {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #5865F2;  
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-}
+@media screen and (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
 
-.discord-button:hover {
-  background-color: #4752C4;  
+  .site-title {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .site-logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  #projectsGrid {
+    grid-template-columns: 1fr; 
+  }
+
+  .project-card .project-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card a.project-button {
+    width: 100%;
+    text-align: center;
+  }
 }
